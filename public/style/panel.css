@@ -1,128 +1,199 @@
-/* Panel Styles */
-.header {
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-.nav-tabs {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+body {
+    background: #f5f7fa;
+    color: #333;
 }
 
-.tab-button {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    background: transparent;
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
-    border: none;
+    padding: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.menu-item {
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.tab-button.active {
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item.active {
     background: rgba(255, 255, 255, 0.2);
 }
 
 .main-content {
-    padding: 2rem;
+    flex: 1;
+    padding: 20px;
 }
 
-.status-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+.header {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.status-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.status-indicator {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.status-online {
-    color: #10b981;
-}
-
-.status-offline {
-    color: #ef4444;
-}
-
-.quick-actions {
+.dashboard-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 20px;
 }
 
-.action-button {
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 28px;
     font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    color: #1e3c72;
 }
 
-.action-button:hover {
+.stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.content-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #1e3c72;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-danger {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-success {
+    background: #4caf50;
+    color: white;
+}
+
+.btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.ongoing-attacks {
-    margin-top: 2rem;
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
 }
 
-.attack-item {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
 }
 
-.attack-status {
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
+.table th {
+    background: #f8f9fa;
+    font-weight: bold;
+}
+
+.table tr:hover {
+    background: #f8f9fa;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
     font-weight: bold;
 }
 
 .status-running {
-    background: rgba(34, 197, 94, 0.2);
-    color: #10b981;
-}
-
-.status-completed {
-    background: rgba(59, 130, 246, 0.2);
-    color: #3b82f6;
+    background: #4caf50;
+    color: white;
 }
 
 .status-stopped {
-    background: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
+    background: #ff6b6b;
+    color: white;
 }
+
+.status-completed {
+    background: #2196f3;
+    color: white;
+}
+
+.method-btn {
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.method-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.method-syn { background: #ff6b6b; color: white; }
+.method-ack { background: #4caf50; color: white; }
+.method-icmp { background: #2196f3; color: white; }
+.method-rand { background: #9c27b0; color: white; }
+.method-file { background: #ff9800; color: white; }
+.method-oblivion { background: #607d8b; color: white; }
