@@ -1,26 +1,28 @@
-// User management functions
-function createUser(username, password, role = 'user') {
-    const users = loadData(USER_FILE).users;
-    const hashedPassword = bcrypt.hashSync(password, 10);
+// Auto delete functionality
+function autoDeleteExpiredAttacks() {
+    const now = Date.now();
+    const expiredAttacks = [];
     
-    const newUser = {
-        id: Date.now().toString(),
-        username,
-        password: hashedPassword,
-        role
-    };
+    for (let i = ongoingAttacks.length - 1; i >= 0; i--) {
+        const attack = ongoingAttacks[i];
+        const startTime = new Date(attack.StartTime).getTime();
+        const duration = parseInt(attack.Time) * 1000;
+        
+        if (now - startTime > duration) {
+            attack.Status = "EXPIRED";
+            attack.EndTime = new Date().toISOString();
+            attackHistory.push({...attack});
+            ongoingAttacks.splice(i, 1);
+            expiredAttacks.push(attack);
+        }
+    }
     
-    users.push(newUser);
-    saveData(USER_FILE, { users });
-    return newUser;
+    if (attackHistory.length > 100) {
+        attackHistory.splice(0, 50);
+    }
+    
+    return expiredAttacks;
 }
 
-function authenticateUser(username, password) {
-    const users = loadData(USER_FILE).users;
-    const user = users.find(u => u.username === username);
-    
-    if (!user) return null;
-    
-    const valid = bcrypt.compareSync(password, user.password);
-    return valid ? user : null;
-}
+// Run auto delete every 15 seconds
+setInterval(autoDeleteExpiredAttacks, 15000);
