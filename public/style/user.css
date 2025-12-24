@@ -1,1 +1,74 @@
+/* User Management Styles */
+.user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
 
+.user-input {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.user-select {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.user-checkbox {
+    accent-color: #667eea;
+}
+
+.user-table {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.user-table th, .user-table td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.user-table th {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.user-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-table tr:last-child {
+    border-bottom: none;
+}
+
+.user-plan {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.plan-premium {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.plan-reseller {
+    background: rgba(34, 197, 94, 0.2);
+    color: #10b981;
+}
+
+.plan-free {
+    background: rgba(107, 114, 128, 0.2);
+    color: #6b7280;
+}
