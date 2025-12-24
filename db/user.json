@@ -1,10 +1,10 @@
 {
   "users": [
     {
+      "id": "1",
       "username": "admin",
-      "password": "kelvinvmxz",
-      "plan": "premium",
-      "reseller": true
+      "password": "$2a$10$examplehashedpassword",
+      "role": "admin"
     }
   ]
 }
